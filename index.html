@@ -33,7 +33,7 @@
       function updateHeight() {
                 document.getElementsByClassName('pell-content')[0].style.height = (document.getElementById('editor').clientHeight - document.getElementsByClassName('pell-actionbar')[0].clientHeight) + 'px'
             }
-            setTimeout(updateHeight, 2000);
+            updateHeight()
               window.addEventListener('resize', function(event) {
               updateHeight()
             }, true);
