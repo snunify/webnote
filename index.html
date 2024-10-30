@@ -1,0 +1,42 @@
+ <html>
+        <head>
+          <link rel="stylesheet" type="text/css" href="https://unpkg.com/pell/dist/pell.min.css">
+          <style>
+          .pell-content{
+            background: white;
+            border-bottom: 1px solid black;
+          }
+          #editor {
+          	height: 100%;
+          }
+          .pell{border:1px solid hsla(0,0%,4%,.1)}
+          .pell,.pell-content{box-sizing:border-box}
+          .pell-content{height:300px;outline:0;overflow-y:auto;padding:10px}
+          .pell-actionbar{background-color:#fff;border-bottom:1px solid hsla(0,0%,4%,.1)}
+          .pell-button{background-color:transparent;border:none;cursor:pointer;height:40px;outline:0;width:40px;vertical-align:bottom}
+          .pell-button-selected{background-color:#f0f0f0}
+          </style>
+          <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+        </head>
+        <body>
+          <div id="editor"></div>
+          <script src="https://unpkg.com/pell"></script>
+          <script>
+              const pell = window.pell;
+              const editor = document.getElementById("editor");
+    
+              pell.init({
+                element: editor,
+              })
+          </script>
+          <script>
+      function updateHeight() {
+                document.getElementsByClassName('pell-content')[0].style.height = (document.getElementById('editor').clientHeight - document.getElementsByClassName('pell-actionbar')[0].clientHeight) + 'px'
+            }
+            setTimeout(updateHeight, 2000);
+              window.addEventListener('resize', function(event) {
+              updateHeight()
+            }, true);
+          </script>
+        </body>
+        </html>
